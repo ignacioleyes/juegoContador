@@ -1,35 +1,65 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Button, Text, HStack, VStack } from "@chakra-ui/react";
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [count, setCount] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [disableClickMe, setDisableClickMe] = useState(true);
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    const handleIsPlaying = () => {
+        setCount(!isPlaying ? 0 : count);
+        setIsPlaying(true);
+        setTimeout(() => {
+            setIsPlaying(false);
+            setDisableClickMe(false);
+        }, 5000);
+    };
+
+    const handleClick = () => {
+        if (isPlaying) {
+            setCount(count + 1);
+        }
+    };
+
+    return (
+        <HStack w={"100vw"} h={"100vh"} p={0} m={0} spacing={0}>
+            <VStack
+                width={"50%"}
+                h={"100%"}
+                bg={"lightgray"}
+                justifyContent={"center"}
+            >
+                <Button
+                    disabled={isPlaying}
+                    variant={"solid"}
+                    colorScheme={"teal"}
+                    size={"lg"}
+                    onClick={handleIsPlaying}
+                >
+                    Start Playing
+                </Button>
+            </VStack>
+            <VStack
+                width={"50%"}
+                h={"100%"}
+                bg={"coral"}
+                justifyContent={"center"}
+            >
+                <Button
+                    onClick={handleClick}
+                    disabled={disableClickMe}
+                    variant={"solid"}
+                    colorScheme={"teal"}
+                    size={"lg"}
+                >
+                    Click Me!
+                </Button>
+                <Text fontSize={"2rem"} fontWeight={"bold"}>
+                    Total Clicks: {count}
+                </Text>
+            </VStack>
+        </HStack>
+    );
 }
 
-export default App
+export default App;
