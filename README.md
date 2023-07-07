@@ -12,6 +12,7 @@ Welcome to JuegoContador, a simple game to test your clicking ability.
 
 -   Clone this repository: `https://github.com/ignacioleyes/juegoContador.git`
 -   Navigate to the project directory: `cd juegoContador`
+-   If you don't have yarn do: npm install --global yarn
 -   Install dependencies: `yarn install`
 
 ### Running the Application
