@@ -26,7 +26,7 @@ function App() {
         }, 3000);
     };
 
-    const hadleStartGame = () => {
+    const handleStartGame = () => {
         setTimeout(() => {
             setMessage("");
             setIsPlaying(false);
@@ -41,7 +41,7 @@ function App() {
     };
 
     useEffect(() => {
-        if (message === "Go!") hadleStartGame();
+        if (message === "Go!") handleStartGame();
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [message]);
 

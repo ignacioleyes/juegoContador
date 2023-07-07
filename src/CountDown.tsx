@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Center, Heading } from "@chakra-ui/react";
+import { Heading } from "@chakra-ui/react";
 
 interface Props {
     isPlaying: boolean;
