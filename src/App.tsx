@@ -54,7 +54,7 @@ function App() {
                 justifyContent={"center"}
             >
                 <Button
-                    isDisabled={isPlaying === true}
+                    isDisabled={isPlaying}
                     variant={"solid"}
                     colorScheme={"blackAlpha"}
                     size={"lg"}
