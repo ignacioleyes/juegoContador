@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
 import { Button, Text, HStack, VStack, Heading } from "@chakra-ui/react";
 import CountDown from "./CountDown";
+import BestScore from "./BestScore";
 
 function App() {
     const [count, setCount] = useState(0);
     const [isPlaying, setIsPlaying] = useState(false);
     const [disableClickMe, setDisableClickMe] = useState(true);
     const [message, setMessage] = useState("");
+    const [bestScore, setBestScore] = useState(0);
 
     const handleIsPlaying = () => {
         setIsPlaying(true);
+        setBestScore(count > bestScore ? count : bestScore)
         setCount(0);
 
         setTimeout(() => {
@@ -47,6 +50,7 @@ function App() {
 
     return (
         <HStack w={"100vw"} h={"100vh"} p={0} m={0} spacing={0}>
+            <BestScore score={bestScore}/>
             <VStack
                 width={"50%"}
                 h={"100%"}
