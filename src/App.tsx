@@ -13,7 +13,6 @@ function App() {
     const [isPlaying, setIsPlaying] = useState(false);
     const [disableClickMe, setDisableClickMe] = useState(true);
     const [message, setMessage] = useState("");
-    // const [bestScore, setBestScore] = useState(0);
 
     const handleIsPlaying = () => {
         setIsPlaying(true);
